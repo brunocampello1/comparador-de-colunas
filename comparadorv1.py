@@ -55,13 +55,9 @@ if file1 and file2:
 
     if st.button("Comparar valores"):
 
-        # APLICAR FILTROS ANTES DA COMPARAÇÃO
-
-        # Aplicar filtro por valor no PLANO
+        # Aplicar filtro por valor
         if filtro_col1 != "(Sem filtro)":
             df1 = df1[df1[filtro_col1].astype(str) == filtro_val1]
-        
-        # Aplicar filtro por valor no REALIZADO
         if filtro_col2 != "(Sem filtro)":
             df2 = df2[df2[filtro_col2].astype(str) == filtro_val2]
 
@@ -97,6 +93,10 @@ if file1 and file2:
             st.write(apenas_no_realizado)
         else:
             st.success("Todos os itens do realizado estão presentes no plano!")
+
+        # Exibir resultado secundário
+        #st.subheader("ℹ️ Itens no PLANO que não aparecem no REALIZADO (não realizados):")
+        #st.write(apenas_no_plano if apenas_no_plano else "Nenhum")
 
         # Gerar planilha para download
         output = BytesIO()
